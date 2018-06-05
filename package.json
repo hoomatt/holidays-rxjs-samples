@@ -1,0 +1,53 @@
+{
+  "name": "holidays-rxjs-samples",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "fuse.js": "^3.2.0",
+    "lodash": "^4.17.10",
+    "luxon": "^1.2.0",
+    "npm": "^6.0.0",
+    "qs": "^6.5.2",
+    "raven-js": "^3.24.2",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-router-dom": "^4.2.2",
+    "rx-dom": "^7.0.3",
+    "rxjs": "^6.0.0"
+  },
+  "scripts": {
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts-ts start"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "@types/lodash": "^4.14.108",
+    "@types/luxon": "^0.5.2",
+    "@types/node": "^9.6.14",
+    "@types/qs": "^6.5.1",
+    "@types/react": "^16.3.14",
+    "@types/react-dom": "^16.0.5",
+    "@types/react-router-dom": "^4.2.6",
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.1.3",
+    "prettier": "^1.12.1",
+    "react-scripts-ts": "2.13.0",
+    "typescript": "^2.8.3"
+  },
+  "description": "RxJs samples for Holidays",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hooroo/holidays-rxjs-samples.git"
+  },
+  "author": "Fiachna Carter",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/hooroo/holidays-rxjs-samples/issues"
+  },
+  "homepage": "https://holidays.jetstar.com"
+}
