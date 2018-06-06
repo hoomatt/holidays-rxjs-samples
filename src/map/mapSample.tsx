@@ -3,8 +3,6 @@ import { map } from 'rxjs/operators';
 import * as React from 'react';
 
 export class MapSample extends React.Component {
-    private _element: HTMLElement;
-
     componentDidMount() {
         this.init();
     }
