@@ -4,8 +4,14 @@ import { scan, tap } from "rxjs/operators";
 
 export class ScanSample extends React.Component
 {
+    private subscribe;
+
     componentDidMount() {
-        this.init();
+        this.init(); console.clear()
+    }
+
+    componentWillUnmount(){
+        this.subscribe.unsubscribe();
     }
 
     init() {
@@ -17,7 +23,7 @@ export class ScanSample extends React.Component
         );
 
         //output: 0, 1, 3, 6, 10, 15, 21, 28, 36, 45
-        const subscribe = example.subscribe(val => console.log(`sum: ${val}`));
+        this.subscribe = example.subscribe(val => console.log(`sum: ${val}`));
     }
 
     render() {

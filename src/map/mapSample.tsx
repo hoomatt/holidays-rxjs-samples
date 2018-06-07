@@ -3,8 +3,14 @@ import { map } from 'rxjs/operators';
 import * as React from 'react';
 
 export class MapSample extends React.Component {
+    private subscribe;
+
     componentDidMount() {
-        this.init();
+        this.init(); console.clear()
+    }
+
+    componentWillUnmount(){
+        this.subscribe.unsubscribe();
     }
 
     init() {
@@ -12,7 +18,7 @@ export class MapSample extends React.Component {
         //add 10 to each value
         const example = source.pipe(map(val => val * 10));
         //output: 11,12,13,14,15
-        const subscribe = example.subscribe(val => console.log(val));
+        this.subscribe = example.subscribe(val => console.log(val));
     }
 
     render() {

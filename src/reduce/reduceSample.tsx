@@ -3,10 +3,15 @@ import { from, interval } from "rxjs";
 import { reduce, take, tap } from "rxjs/operators";
 
 export class ReduceSample extends React.Component {
+    private subscribe;
+
     componentDidMount() {
-        this.init();
+        this.init(); console.clear()
     }
 
+    componentWillUnmount(){
+        this.subscribe.unsubscribe();
+    }
     init() {
         const source = interval(1000);
 
@@ -17,7 +22,7 @@ export class ReduceSample extends React.Component {
         );
 
         //output: 45
-        const subscribe = example.subscribe(val => console.log(`sum: ${val}`));
+        this.subscribe = example.subscribe(val => console.log(`sum: ${val}`));
     }
 
     render() {

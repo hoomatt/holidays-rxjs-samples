@@ -3,8 +3,14 @@ import { of } from "rxjs";
 import { distinctUntilChanged } from "rxjs/operators";
 
 export class DistinctUntilChangedSample extends React.Component {
+    private subscribe;
+
     componentDidMount() {
-        this.init();
+        this.init(); console.clear()
+    }
+
+    componentWillUnmount(){
+        this.subscribe.unsubscribe();
     }
 
     init() {
@@ -15,7 +21,7 @@ export class DistinctUntilChangedSample extends React.Component {
         );
 
         //output: 1, 2, 3, 2, 3, 1, 3, 2, 1
-        const subscribe = example.subscribe(val => console.log(val));
+        this.subscribe = example.subscribe(val => console.log(val));
     }
 
     render() {

@@ -1,10 +1,16 @@
 import * as React from "react";
-import { timer } from "rxjs";
+import { timer, Subscription } from "rxjs";
 import { share, tap } from "rxjs/operators";
 
 export class ShareSample extends React.Component {
+    private subscriptions : Subscription[];
+
     componentDidMount() {
-        this.init();
+        this.init(); console.clear()
+    }
+
+    componentWillUnmount(){
+        this.subscriptions.forEach(t => t.unsubscribe());
     }
 
     init() {
@@ -21,11 +27,11 @@ export class ShareSample extends React.Component {
             tap(t => console.log(`NOSHARE-TAP: ${t}`))
         );
 
-        const subscribe1 = example.subscribe(val => console.log(`SHARE-SUB1: ${val}`));
-        const subscribe2 = example.subscribe(val => console.log(`SHARE-SUB2: ${val}`));
+        this.subscriptions.push(example.subscribe(val => console.log(`SHARE-SUB1: ${val}`)));
+        this.subscriptions.push(example.subscribe(val => console.log(`SHARE-SUB2: ${val}`)));
 
-        const subscribe3 = exampleNoShare.subscribe(val => console.log(`NOSHARE-SUB1: ${val}`));
-        const subscribe4 = exampleNoShare.subscribe(val => console.log(`NOSHARE-SUB2: ${val}`));
+        this.subscriptions.push(exampleNoShare.subscribe(val => console.log(`NOSHARE-SUB1: ${val}`)));
+        this.subscriptions.push(exampleNoShare.subscribe(val => console.log(`NOSHARE-SUB2: ${val}`)));
     }
 
     render() {

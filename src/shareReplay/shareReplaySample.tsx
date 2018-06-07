@@ -1,13 +1,19 @@
 import * as React from "react";
-import { timer, Observable } from "rxjs";
+import { timer, Observable, Subscription } from "rxjs";
 import { tap, shareReplay, share } from "rxjs/operators";
 
 export class ShareReplaySample extends React.Component
 {
     private example : Observable<number>;    
 
+    private subscriptions : Subscription[];
+
     componentDidMount() {
-        this.init();
+        this.init(); console.clear()
+    }
+
+    componentWillUnmount(){
+        this.subscriptions.forEach(t => t.unsubscribe());
     }
 
     init() {
@@ -18,11 +24,11 @@ export class ShareReplaySample extends React.Component
             shareReplay(5)
         );
 
-        const subscribe1 = this.example.subscribe(val => console.log(`DEFAULT SUB: ${val}`));        
+        this.subscriptions.push(this.example.subscribe(val => console.log(`DEFAULT SUB: ${val}`)));
     }
 
     subscribeAgain() {
-        const subscribe2 = this.example.subscribe(val => console.log(`SUB: ${val}`));        
+        this.subscriptions.push(this.example.subscribe(val => console.log(`SUB: ${val}`)));
     }
 
     render() {

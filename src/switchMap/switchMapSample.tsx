@@ -6,8 +6,14 @@ export class SwitchMapSample extends React.Component {
     private _element: HTMLElement;
     private _mmButton: HTMLButtonElement;
 
+    private subscribe;
+
     componentDidMount() {
-        this.init();
+        this.init(); console.clear()
+    }
+
+    componentWillUnmount(){
+        this.subscribe.unsubscribe();
     }
 
     init() {
@@ -22,7 +28,7 @@ export class SwitchMapSample extends React.Component {
             ))
         )
                 
-        const subscribe = example.subscribe(val => console.log(val));
+        this.subscribe = example.subscribe(val => console.log(val));
     }
 
     render() {

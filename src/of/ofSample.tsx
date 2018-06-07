@@ -3,8 +3,14 @@ import { map } from 'rxjs/operators';
 import * as React from 'react';
 
 export class OfSample extends React.Component {
+    private subscribe;
+
     componentDidMount() {
-        this.init();
+        this.init(); console.clear()
+    }
+
+    componentWillUnmount(){
+        this.subscribe.unsubscribe();
     }
 
     init() {
@@ -13,7 +19,7 @@ export class OfSample extends React.Component {
         const example = source;
         
         //output: 11,12,13,14,15
-        const subscribe = example.subscribe(val => console.log(val));
+        this.subscribe = example.subscribe(val => console.log(val));
     }
 
     render() {

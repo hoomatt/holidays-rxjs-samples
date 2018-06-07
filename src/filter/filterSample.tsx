@@ -5,8 +5,14 @@ import * as React from 'react';
 export class FilterSample extends React.Component {
     private _element: HTMLElement;
 
+    private subscribe;
+
     componentDidMount() {
-        this.init();
+        this.init(); console.clear()
+    }
+
+    componentWillUnmount(){
+        this.subscribe.unsubscribe();
     }
 
     init() {
@@ -16,7 +22,7 @@ export class FilterSample extends React.Component {
             (filter(val => val % 2 == 0)
         );
         //output: 2,4,6
-        const subscribe = example.subscribe(val => console.log(val));
+        this.subscribe = example.subscribe(val => console.log(val));
     }
 
     render() {

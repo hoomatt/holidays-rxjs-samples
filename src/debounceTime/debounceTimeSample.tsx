@@ -5,8 +5,14 @@ import { debounceTime, take, map } from "rxjs/operators";
 export class DebounceTimeSample extends React.Component {
     inputBox: HTMLInputElement;
 
+    private subscribe;
+
     componentDidMount() {
-        this.init();
+        this.init(); console.clear()
+    }
+
+    componentWillUnmount(){
+        this.subscribe.unsubscribe();
     }
 
     init() {
@@ -17,7 +23,7 @@ export class DebounceTimeSample extends React.Component {
             debounceTime(2000),
         );
 
-        const subscribe = example.subscribe(val => console.log(`Debounced: ${val}`));
+        this.subscribe = example.subscribe(val => console.log(`Debounced: ${val}`));
     }
 
     render() {

@@ -3,8 +3,14 @@ import { map, catchError } from 'rxjs/operators';
 import * as React from 'react';
 
 export class CatchErrorSample extends React.Component {    
+    private subscribe;
+
     componentDidMount() {
-        this.init();
+        this.init(); console.clear()
+    }
+
+    componentWillUnmount(){
+        this.subscribe.unsubscribe();
     }
 
     init() {  
@@ -21,7 +27,7 @@ export class CatchErrorSample extends React.Component {
         );
 
         //output: 'I caught: This is a disaster'
-        const subscribe = example.subscribe(val => console.log(val));
+        this.subscribe = example.subscribe(val => console.log(val));
     }
 
     render() {

@@ -16,7 +16,7 @@
     "strictNullChecks": false,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": false,
-    "baseUrl": "http://localhost:3000"
+    "baseUrl": "."
   },
   "exclude": [
     "node_modules",

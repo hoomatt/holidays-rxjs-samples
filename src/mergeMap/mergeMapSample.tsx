@@ -6,8 +6,14 @@ export class MergeMapSample extends React.Component {
     private _element: HTMLElement;
     private _mmButton: HTMLButtonElement;
 
+    private subscribe;
+
     componentDidMount() {
-        this.init();
+        this.init(); console.clear()
+    }
+
+    componentWillUnmount(){
+        this.subscribe.unsubscribe();
     }
 
     init() {
@@ -23,7 +29,7 @@ export class MergeMapSample extends React.Component {
         )
         
         //output: 11,12,13,14,15
-        const subscribe = example.subscribe(val => console.log(val));
+        this.subscribe = example.subscribe(val => console.log(val));
     }
 
     render() {
