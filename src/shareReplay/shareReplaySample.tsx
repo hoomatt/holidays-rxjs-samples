@@ -21,7 +21,7 @@ export class ShareReplaySample extends React.Component
         const subscribe1 = this.example.subscribe(val => console.log(`DEFAULT SUB: ${val}`));        
     }
 
-    subcribeAgain() {
+    subscribeAgain() {
         const subscribe2 = this.example.subscribe(val => console.log(`SUB: ${val}`));        
     }
 
@@ -31,10 +31,10 @@ export class ShareReplaySample extends React.Component
                <h1>ShareReplay</h1>
                 <p>Shares observable output among many subscribers, with the ability to replay the past.
                      In this example, we have one observable with a tap to write each value to the console.</p>
-                <p>There is a default subscriber, who is created when the page loads. But clicking the 
+                <p>There is a default subscriber, who is created when the page loads. By clicking the 
                     'Subscribe again' button, you will observe the last 5 values (pipe(shareReplay(5)) being written to the console, 
                     before the new subscriber resumes subscribing in sync with the existing subscriber. </p>
-                <button onClick={() => this.subcribeAgain()}>Subscribe again!</button>
+                <button onClick={() => this.subscribeAgain()}>Subscribe again!</button>
             </div>
         );
     }

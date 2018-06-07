@@ -26,7 +26,7 @@ export class App extends React.Component {
     { path: "of", component: OfSample },
     { path: "share", component: ShareSample },
     { path: "shareReplay", component: ShareReplaySample },
-    // { path: "catchError", component: CatchErrorSample },
+    { path: "catchError", component: CatchErrorSample },
   ];
 
   render() {

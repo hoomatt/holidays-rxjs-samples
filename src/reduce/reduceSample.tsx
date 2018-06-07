@@ -1,22 +1,23 @@
 import * as React from "react";
-import { from } from "rxjs";
-import { reduce, timeInterval } from "rxjs/operators";
+import { from, interval } from "rxjs";
+import { reduce, take, tap } from "rxjs/operators";
 
-export class ReduceSample extends React.Component
-{
+export class ReduceSample extends React.Component {
     componentDidMount() {
         this.init();
     }
 
     init() {
-        const source = from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+        const source = interval(1000);
 
-        const example = source.pipe(            
-            reduce((acc, x) => acc+x, 0)
+        const example = source.pipe(
+            tap(x => console.log(`interval: ${x}`)),
+            take(10),
+            reduce((acc, x) => acc + x, 0)
         );
 
-        //output: 11,12,13,14,15
-        const subscribe = example.subscribe(val => console.log(val));
+        //output: 45
+        const subscribe = example.subscribe(val => console.log(`sum: ${val}`));
     }
 
     render() {
@@ -24,7 +25,8 @@ export class ReduceSample extends React.Component
             <div>
                 <h1>Reduce</h1>
                 <p>Similar to Linq's Aggregate, reduce operates on an Observable, takes an accumulator function F(acc, val) and emits the value of acc after the Observable completes.</p>
-                <p>How does an observable complete? I'm not sure, yet</p>
+                <p>Since an interval does not complete on its own, in this example we have piped the Observable through a 'take' function, which will return the first 10 values and complete.</p>
+                <p>After 10 seconds, the reducer will emit the sum of the first 10 values emitted by the interval</p>
             </div>
         );
     }

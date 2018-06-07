@@ -1,34 +1,34 @@
-import { Observable, from, interval, of, throwError, concat } from 'rxjs';
-import { map, tap, catchError } from 'rxjs/operators';
+import { Observable, of, interval } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import * as React from 'react';
 
-export class CatchErrorSample extends React.Component {
+export class CatchErrorSample extends React.Component {    
     componentDidMount() {
         this.init();
     }
 
-    init() {
-        const source = of(1, 2, 3, (() => { throw new Error("Broken") })());
-        
-        // source.pipe(
-        //     tap(x => console.log(x))
-        // );
+    init() {  
+        const source = interval(1000);
 
-        const example = source.pipe(
-            
-            catchError(err => of(`I caught: ${err}`))
+        const example = source.pipe(              
+            map((val, index) => {
+                if (val == 10)
+                    throw new Error("This is a disaster!");                    
+                else 
+                    return val;
+            }),
+            catchError(err => of(`Error:: ${err}`))
         );
 
-        
-
-        example.subscribe(t => console.log(t));
+        //output: 'I caught: This is a disaster'
+        const subscribe = example.subscribe(val => console.log(val));
     }
 
     render() {
         return (
             <div>
-                <h1> Of </h1>
-                <p>Generates an observable from a static source</p>
+                <h1>catchError</h1>
+                <p>Handles errors thrown from an observable. In this example, once the interval reaches 10, we throw an error. catchError catches the error and allows you to gracefully handle failure</p>                
             </div>
         );
     }

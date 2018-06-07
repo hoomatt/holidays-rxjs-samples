@@ -39,15 +39,15 @@
     "react-scripts-ts": "2.13.0",
     "typescript": "^2.8.3"
   },
-  "description": "RxJs samples for Holidays",
+  "description": "RxJs samples",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hooroo/holidays-rxjs-samples.git"
+    "url": "git+https://github.com/hoomatt/holidays-rxjs-samples.git"
   },
-  "author": "Fiachna Carter",
+  "author": "Matt",
   "license": "",
   "bugs": {
-    "url": "https://github.com/hooroo/holidays-rxjs-samples/issues"
+    "url": "https://github.com/hoomatt/holidays-rxjs-samples/issues"
   },
-  "homepage": "https://holidays.jetstar.com"
+  "homepage": "https://github.com/hoomatt/holidays-rxjs-samples"
 }
