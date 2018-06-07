@@ -6,10 +6,10 @@ export class ShareReplaySample extends React.Component
 {
     private example : Observable<number>;    
 
-    private subscriptions : Subscription[];
+    private subscriptions : Subscription[] = [];
 
     componentDidMount() {
-        this.init(); console.clear()
+        console.clear(); this.init();
     }
 
     componentWillUnmount(){

@@ -6,7 +6,7 @@ export class CombineLatestSample extends React.Component
     private subscribe;
 
     componentDidMount() {
-        this.init(); console.clear()
+        console.clear(); this.init();
     }
 
     componentWillUnmount(){

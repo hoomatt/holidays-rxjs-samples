@@ -2,6 +2,7 @@ import * as React from "react";
 import "./app.css";
 
 import { MapSample } from './map/mapSample'
+import { MapToSample } from './mapTo/mapToSample'
 import { MergeMapSample } from './mergeMap/mergeMapSample'
 import { Switch, Route } from "react-router";
 import { SwitchMapSample } from "./switchMap/switchMapSample";
@@ -17,10 +18,14 @@ import { DistinctUntilChangedSample } from "./distinctUntilChanged/distinctUntil
 import { DebounceTimeSample } from "./debounceTime/debounceTimeSample";
 import { ZipSample } from "./zip/zipSample";
 import { Link } from "react-router-dom";
+import { StartWithSample } from "./startWith/startWithSample";
+import { ConcatSample } from "./concat/concatSample";
+
 
 export class App extends React.Component {
   private routes = [
     { path: "map", component: MapSample },
+    { path: "mapTo", component: MapToSample },
     { path: "mergeMap", component: MergeMapSample },
     { path: "switchMap", component: SwitchMapSample },
     { path: "filter", component: FilterSample },
@@ -34,6 +39,8 @@ export class App extends React.Component {
     { path: "distinctUntilChanged", component: DistinctUntilChangedSample },
     { path: "debounceTime", component: DebounceTimeSample },
     { path: "zip", component: ZipSample },
+    { path: "startWith", component: StartWithSample },
+    { path: "concat", component: ConcatSample },
   ];
 
   render() {
@@ -41,7 +48,7 @@ export class App extends React.Component {
       <div>
         <ul>
           {this.routes.map(route =>
-            <li key={route.path}><Link to={`${route.path}`}>{route.path}</Link></li>
+            <li key={route.path}><Link to={`/${route.path}`}>{route.path}</Link></li>
           )}
         </ul>
         <Switch>
