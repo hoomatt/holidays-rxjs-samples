@@ -3,10 +3,10 @@ import { timer, Subscription } from "rxjs";
 import { share, tap } from "rxjs/operators";
 
 export class ShareSample extends React.Component {
-    private subscriptions : Subscription[];
+    private subscriptions : Subscription[] = [];
 
     componentDidMount() {
-        this.init(); console.clear()
+        console.clear(); this.init();
     }
 
     componentWillUnmount(){

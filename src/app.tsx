@@ -48,7 +48,7 @@ export class App extends React.Component {
       <div>
         <ul>
           {this.routes.map(route =>
-            <li key={route.path}><Link to={`${route.path}`}>{route.path}</Link></li>
+            <li key={route.path}><Link to={`/${route.path}`}>{route.path}</Link></li>
           )}
         </ul>
         <Switch>
