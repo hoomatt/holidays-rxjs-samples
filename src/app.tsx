@@ -13,6 +13,8 @@ import { OfSample } from "./of/ofSample";
 import { ShareSample } from "./share/shareSample";
 import { ShareReplaySample } from "./shareReplay/shareReplaySample";
 import { CatchErrorSample } from "./catchError/catchErrorSample";
+import { DistinctUntilChangedSample } from "./distinctUntilChanged/distinctUntilChangedSample";
+import { DebounceTimeSample } from "./debounceTime/debounceTimeSample";
 
 export class App extends React.Component {
   private routes = [
@@ -27,6 +29,8 @@ export class App extends React.Component {
     { path: "share", component: ShareSample },
     { path: "shareReplay", component: ShareReplaySample },
     { path: "catchError", component: CatchErrorSample },
+    { path: "distinctUntilChanged", component: DistinctUntilChangedSample },
+    { path: "debounceTime", component: DebounceTimeSample },
   ];
 
   render() {
