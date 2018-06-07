@@ -1,6 +1,6 @@
 import * as React from "react";
 import { timer, Observable, Subscription } from "rxjs";
-import { tap, shareReplay, share } from "rxjs/operators";
+import { tap, shareReplay, share, publishReplay, refCount } from "rxjs/operators";
 
 export class ShareReplaySample extends React.Component
 {
@@ -14,6 +14,7 @@ export class ShareReplaySample extends React.Component
 
     componentWillUnmount(){
         this.subscriptions.forEach(t => t.unsubscribe());
+        this.example = null;
     }
 
     init() {
@@ -21,7 +22,9 @@ export class ShareReplaySample extends React.Component
         
         this.example = source.pipe(        
             tap(t => console.log(`TAPPER: ${t}`)),
-            shareReplay(5)
+            //shareReplay(5)
+            publishReplay(5),
+            refCount()
         );
 
         this.subscriptions.push(this.example.subscribe(val => console.log(`DEFAULT SUB: ${val}`)));
@@ -40,6 +43,9 @@ export class ShareReplaySample extends React.Component
                 <p>There is a default subscriber, who is created when the page loads. By clicking the 
                     'Subscribe again' button, you will observe the last 5 values (pipe(shareReplay(5)) being written to the console, 
                     before the new subscriber resumes subscribing in sync with the existing subscriber. </p>
+                <p>You may find that upon navigating to another sample your console continues to fill up with messages from shareReplay.
+                    This is because of <a href="https://github.com/ReactiveX/rxjs/issues/3336">this issue</a></p>
+                <p>This example currently uses the suggested workaround: publishReplay(5).refCount()</p>
                 <button onClick={() => this.subscribeAgain()}>Subscribe again!</button>
             </div>
         );
