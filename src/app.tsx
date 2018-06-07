@@ -15,6 +15,7 @@ import { ShareReplaySample } from "./shareReplay/shareReplaySample";
 import { CatchErrorSample } from "./catchError/catchErrorSample";
 import { DistinctUntilChangedSample } from "./distinctUntilChanged/distinctUntilChangedSample";
 import { DebounceTimeSample } from "./debounceTime/debounceTimeSample";
+import { ZipSample } from "./zip/zipSample";
 
 export class App extends React.Component {
   private routes = [
@@ -31,6 +32,7 @@ export class App extends React.Component {
     { path: "catchError", component: CatchErrorSample },
     { path: "distinctUntilChanged", component: DistinctUntilChangedSample },
     { path: "debounceTime", component: DebounceTimeSample },
+    { path: "zip", component: ZipSample },
   ];
 
   render() {
