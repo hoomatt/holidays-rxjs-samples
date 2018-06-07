@@ -6,7 +6,7 @@ import { App } from "./app";
 import "./index.css";
 
 ReactDOM.render(
-    <HashRouter basename={window.location.pathname}>
+    <HashRouter>
         <App />
     </HashRouter>,
     document.getElementById("root") as HTMLElement
