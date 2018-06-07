@@ -16,7 +16,7 @@
     "strictNullChecks": false,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": false,
-    "baseUrl": "."
+    "baseUrl": "https://hoomatt.github.io/holidays-rxjs-samples/"
   },
   "exclude": [
     "node_modules",
