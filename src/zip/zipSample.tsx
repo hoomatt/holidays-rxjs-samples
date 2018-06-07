@@ -14,10 +14,6 @@ export class ZipSample extends React.Component
         const source3 = interval(3200);
         const source4 = interval(4300);
 
-        [source1, source2, source3, source4].forEach((s,i) => 
-            s.pipe(tap(v => console.log(`S${i+1}: ${v}`)))
-        );
-
         const example = zip(
             source1.pipe(tap(v => console.log(`s1: ${v}`))),
             source2.pipe(tap(v => console.log(`s2: ${v}`))),
@@ -34,7 +30,8 @@ export class ZipSample extends React.Component
         return (
             <div>
                 <h1>Zip</h1>                
-                <p>Combines a number of observables into one, keeping the observables inline with index. In this example even though S1 races ahead of values, the output from zip is inline with all other observables.</p>
+                <p>Combines a number of observables into one, keeping the observables inline with an index. In this example even though S1 races ahead of values, the output from zip is inline with all other observables.</p>
+                <p>This differs from combineLatest which uses the latest value of each observable.</p>
                 <p>Does not produce output until all observables have at least one value</p>
             </div>
         );
