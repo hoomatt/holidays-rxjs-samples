@@ -36,8 +36,7 @@ export class SwitchMapSample extends React.Component {
             <div>
                 <h1>SwitchMap (see also <Link to={"/mergeMap"}>mergeMap</Link>)</h1>
                 <p>
-                    In this example, we have created an observable from the click event attached to the button below. The subscription 
-                    logging to the console is created on this event-derived observable <i>E</i>
+                    In this example, we have created an observable from the click event attached to the button below. 
                 </p>
                 <p>
                     We have also defined an interval observable, <i>T</i>, which will generate a sequence of ever-increasing integers, one per second.
