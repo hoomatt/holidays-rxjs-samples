@@ -18,7 +18,8 @@ export class ConcatMapSample extends React.Component {
             concatMap(val => of(val*10,val*11,val*12).pipe(delay(1000)))
         );
         this.concatSub = concatExample.subscribe(val => console.log("concatMap: " + val));
-        // outputs 10,11,12
+        // outputs :
+        // 10,11,12
         // 20,22,24
         // 30,33,36
 
@@ -26,6 +27,8 @@ export class ConcatMapSample extends React.Component {
             mergeMap(val => of(val*10,val*11,val*12).pipe(delay(1000)))
         );
         this.mergeSub = mergeExample.subscribe(val => console.log("mergeMap: " + val));
+        // outputs :
+        // 10,11,12,20,22,24,30,33,36
 
 
         
