@@ -17,7 +17,7 @@ export class MapSample extends React.Component {
         const source = interval(1000);
         //add 10 to each value
         const example = source.pipe(map(val => val * 10));
-        //output: 11,12,13,14,15
+        //output: 0,10,20,30,...1000,1010,....
         this.subscribe = example.subscribe(val => console.log(val));
     }
 

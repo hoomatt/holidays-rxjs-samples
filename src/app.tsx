@@ -22,6 +22,7 @@ import { StartWithSample } from "./startWith/startWithSample";
 import { ConcatSample } from "./concat/concatSample";
 import { BehaviourSubjectSample } from "./behaviourSubject/behaviourSubjectSample";
 import { ReplaySubjectSample } from "./replaySubject/replaySubjectSample";
+import { ConcatMapSample } from "./concatMap/concatMapSample";
 
 
 export class App extends React.Component {
@@ -44,7 +45,8 @@ export class App extends React.Component {
     { path: "startWith", component: StartWithSample },
     { path: "concat", component: ConcatSample },
     { path: "behaviourSubject", component: BehaviourSubjectSample },
-    { path: "replaySubject", component: ReplaySubjectSample }
+    { path: "replaySubject", component: ReplaySubjectSample },
+    { path: "concatMap and mergeMap", component: ConcatMapSample },
   ];
 
   render() {
