@@ -52,7 +52,7 @@ export class App extends React.Component {
   render() {
     return (
       <div>
-        <ul>
+        <ul className='main-menu'>
           {this.routes.map(route =>
             <li key={route.path}><Link to={`/${route.path}`}>{route.path}</Link></li>
           )}
