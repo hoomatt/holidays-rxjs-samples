@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.css"],"names":[],"mappings":"AACA,aACE,uBACQ,eACR,uBACQ,cAAgB","file":"static/css/main.53bd02cb.css","sourcesContent":["/* app.css */\nul.main-menu {\n  -webkit-column-count: 2;\n          column-count: 2;\n  -webkit-column-gap: 2em;\n          column-gap: 2em; }\n\n\n\n// WEBPACK FOOTER //\n// ./src/app.css"],"sourceRoot":""}
