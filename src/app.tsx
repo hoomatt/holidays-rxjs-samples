@@ -20,6 +20,8 @@ import { ZipSample } from "./zip/zipSample";
 import { Link } from "react-router-dom";
 import { StartWithSample } from "./startWith/startWithSample";
 import { ConcatSample } from "./concat/concatSample";
+import { BehaviourSubjectSample } from "./behaviourSubject/behaviourSubjectSample";
+import { ReplaySubjectSample } from "./replaySubject/replaySubjectSample";
 
 
 export class App extends React.Component {
@@ -41,6 +43,8 @@ export class App extends React.Component {
     { path: "zip", component: ZipSample },
     { path: "startWith", component: StartWithSample },
     { path: "concat", component: ConcatSample },
+    { path: "behaviourSubject", component: BehaviourSubjectSample },
+    { path: "replaySubject", component: ReplaySubjectSample }
   ];
 
   render() {
